@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ricardo Larraínzar Julve — Ingeniero de Hardware</title>
+<meta name="description" content="Portfolio técnico de Ricardo Larraínzar Julve, Ingeniero de Hardware especializado en electrónica de potencia y sistemas analógicos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F5F3EE;
+    --paper-2:#EDEAE1;
+    --ink:#1C2128;
+    --ink-soft:#3A414B;
+    --line:#C9C4B8;
+    --line-strong:#9D9788;
+    --copper:#B8763D;
+    --copper-dark:#95602F;
+    --green:#3F5B45;
+    --max-w:920px;
+    --gap:24px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+  }
+
+  html, body{overflow-x:hidden; width:100%;}
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    background-image:
+      radial-gradient(var(--line) 0.6px, transparent 0.6px);
+    background-size:28px 28px;
+    background-position:-14px -14px;
+  }
+
+  a{color:var(--copper-dark);}
+  a:focus-visible, button:focus-visible, .navlink:focus-visible{
+    outline:2px solid var(--copper);
+    outline-offset:3px;
+  }
+
+  h1,h2,h3{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    margin:0;
+    color:var(--ink);
+  }
+
+  .wrap{max-width:var(--max-w); margin:0 auto; padding:0 24px;}
+
+  code, .mono{font-family:'IBM Plex Mono', monospace;}
+
+  /* ---------- NAV ---------- */
+  header.site{
+    position:sticky; top:0; z-index:20;
+    background:rgba(245,243,238,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .navrow{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 24px; max-width:var(--max-w); margin:0 auto;
+  }
+  .navrow .brand{
+    font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:15px;
+    letter-spacing:0.01em;
+  }
+  .navlinks{display:flex; gap:28px; list-style:none; margin:0; padding:0;}
+  .navlinks a{
+    text-decoration:none; color:var(--ink-soft); font-size:14px;
+    font-family:'IBM Plex Mono', monospace;
+  }
+  .navlinks a:hover{color:var(--copper-dark);}
+
+  /* ---------- TITLE BLOCK / HERO ---------- */
+  .titleblock-section{padding:56px 0 40px;}
+  .titleblock{
+    border:1.5px solid var(--ink);
+    background:var(--paper-2);
+  }
+  .tb-top{
+    padding:32px 28px 24px;
+    border-bottom:1.5px solid var(--ink);
+  }
+  .tb-eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--green); margin-bottom:10px;
+  }
+  .tb-top h1{font-size:clamp(28px, 5vw, 42px); line-height:1.15;}
+  .tb-role{
+    margin-top:10px; font-size:18px; color:var(--ink-soft);
+    font-family:'Space Grotesk', sans-serif; font-weight:500;
+  }
+  .tb-tagline{
+    margin-top:16px; max-width:56ch; color:var(--ink-soft); font-size:15.5px;
+  }
+  .tb-fields{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+  }
+  .tb-field{
+    padding:14px 18px;
+    border-right:1px solid var(--line);
+    border-top:1px solid var(--line);
+  }
+  .tb-field:nth-child(4){border-right:none;}
+  .tb-field .label{
+    font-family:'IBM Plex Mono', monospace; font-size:10.5px;
+    letter-spacing:0.06em; text-transform:uppercase; color:var(--ink-soft);
+    display:block; margin-bottom:4px;
+  }
+  .tb-field .value{font-size:14px; font-family:'IBM Plex Mono', monospace;}
+  .tb-field .value a{color:var(--ink); text-decoration-color:var(--line-strong);}
+
+  @media (max-width:640px){
+    .tb-fields{grid-template-columns:repeat(2, 1fr);}
+    .tb-field:nth-child(2){border-right:none;}
+    .tb-field:nth-child(3){border-right:1px solid var(--line);}
+  }
+
+  /* ---------- SECTION HEADINGS ---------- */
+  .section{padding:52px 0;}
+  .section + .section{border-top:1px solid var(--line);}
+  .section-head{
+    display:flex; align-items:baseline; gap:14px; margin-bottom:32px;
+  }
+  .section-head .tag{
+    font-family:'IBM Plex Mono', monospace; font-size:12px;
+    color:var(--green); border:1px solid var(--green);
+    padding:2px 8px;
+  }
+  .section-head h2{font-size:24px;}
+
+  /* ---------- PROJECT CARD (datasheet style) ---------- */
+  .project{
+    border:1px solid var(--line-strong);
+    margin-bottom:40px;
+    background:rgba(255,255,255,0.35);
+  }
+  .project.minor{
+    border:1px dashed var(--line-strong);
+    background:transparent;
+    max-width:640px;
+  }
+  .project.minor.solid{border-style:solid;}
+  .project.minor .project-head{border-bottom:1px dashed var(--line);}
+  .project.minor.solid .project-head{border-bottom:1px solid var(--line);}
+  .project.minor h3{font-size:17px;}
+  .project.minor .project-code{color:var(--ink-soft);}
+  .minor-body{padding:18px 24px;}
+  .minor-body p{font-size:14px; color:var(--ink-soft); max-width:60ch;}
+  .minor-img-wrap{width:220px;}
+  .minor-img{
+    width:220px;
+    aspect-ratio:4/3;
+    border:1.5px dashed var(--line-strong);
+    display:flex; align-items:center; justify-content:center;
+    text-align:center; padding:10px; margin-top:14px;
+    font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--ink-soft);
+    background:repeating-linear-gradient(135deg, transparent, transparent 8px, rgba(157,151,136,0.12) 8px, rgba(157,151,136,0.12) 9px);
+  }
+  .project-head{
+    display:flex; justify-content:space-between; align-items:flex-start;
+    gap:16px; flex-wrap:wrap;
+    padding:20px 24px;
+    border-bottom:1px solid var(--line);
+  }
+  .project-code{
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px;
+    color:var(--copper-dark); letter-spacing:0.03em;
+  }
+  .project-head h3{font-size:20px; margin-top:6px;}
+  .project-meta{font-size:13.5px; color:var(--ink-soft); margin-top:4px;}
+  .project-tags{display:flex; gap:8px; flex-wrap:wrap;}
+  .project-tags span{
+    font-family:'IBM Plex Mono', monospace; font-size:11px;
+    color:var(--ink-soft); border:1px solid var(--line-strong);
+    padding:3px 8px; white-space:nowrap;
+  }
+
+  .project-body{
+    display:grid;
+    grid-template-columns:220px 1fr;
+    min-width:0;
+  }
+  @media (max-width:700px){
+    .project-body{grid-template-columns:1fr;}
+  }
+
+  .spec-table{
+    border-right:1px solid var(--line);
+    padding:20px 20px;
+    min-width:0;
+  }
+  @media (max-width:700px){
+    .spec-table{border-right:none; border-bottom:1px solid var(--line);}
+  }
+  .spec-row{padding:8px 0; border-bottom:1px dashed var(--line);}
+  .spec-row:last-child{border-bottom:none;}
+  .spec-row .k{
+    display:block; font-family:'IBM Plex Mono', monospace; font-size:10.5px;
+    color:var(--ink-soft); text-transform:uppercase; letter-spacing:0.04em;
+  }
+  .spec-row .v{font-family:'IBM Plex Mono', monospace; font-size:13px; margin-top:2px; overflow-wrap:break-word; word-break:break-word;}
+  .spec-row .v.copper{color:var(--copper-dark); font-weight:600;}
+
+  .project-main{padding:20px 24px; min-width:0;}
+
+  .beats{
+    display:grid; grid-template-columns:repeat(4, 1fr); gap:14px;
+    margin:0 0 22px;
+    min-width:0;
+  }
+  @media (max-width:560px){.beats{grid-template-columns:1fr 1fr;}}
+  .beat{min-width:0;}
+  .beat .label{
+    font-family:'IBM Plex Mono', monospace; font-size:10px;
+    text-transform:uppercase; letter-spacing:0.05em; color:var(--green);
+    margin-bottom:4px; display:block;
+  }
+  .beat p{margin:0; font-size:13.5px; color:var(--ink-soft);}
+
+  .gallery{
+    display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; margin-top:18px;
+  }
+  @media (max-width:560px){.gallery{grid-template-columns:1fr 1fr;}}
+  .imgph{
+    aspect-ratio:4/3;
+    border:1.5px dashed var(--line-strong);
+    display:flex; align-items:center; justify-content:center;
+    text-align:center; padding:10px;
+    font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--ink-soft);
+    background:repeating-linear-gradient(135deg, transparent, transparent 8px, rgba(157,151,136,0.12) 8px, rgba(157,151,136,0.12) 9px);
+  }
+  .imgph img, .minor-img img{width:100%; height:100%; object-fit:cover; display:block;}
+  .img-slot{margin:0;}
+  .img-slot figcaption{
+    margin-top:6px; font-family:'IBM Plex Mono', monospace; font-size:10.5px;
+    color:var(--ink-soft); text-align:center;
+  }
+
+  .note{
+    margin-top:16px; font-size:12.5px; color:var(--ink-soft);
+    border-left:2px solid var(--copper); padding-left:12px;
+  }
+
+  .links-row{margin-top:16px; display:flex; gap:18px; flex-wrap:wrap;}
+  .links-row a{font-size:13.5px; font-family:'IBM Plex Mono', monospace;}
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{
+    display:grid; grid-template-columns:1.3fr 1fr; gap:40px;
+  }
+  @media (max-width:700px){.about-grid{grid-template-columns:1fr;}}
+  .about-text p{font-size:15px; color:var(--ink-soft); max-width:56ch;}
+  .about-photo-row{display:flex; gap:18px; align-items:flex-start; margin-bottom:0;}
+  .about-photo-wrap{width:110px; flex-shrink:0;}
+  .about-photo{width:110px; height:110px; aspect-ratio:auto;}
+  .about-photo-text{flex:1; min-width:0;}
+  @media (max-width:480px){
+    .about-photo-row{flex-direction:column;}
+    .about-photo-wrap{width:110px;}
+  }
+  .skills-list{list-style:none; margin:0; padding:0;}
+  .skills-list li{
+    display:flex; justify-content:space-between;
+    padding:9px 0; border-bottom:1px dashed var(--line);
+    font-size:13.5px;
+  }
+  .skills-list li span:first-child{color:var(--ink);}
+  .skills-list li span:last-child{
+    font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--ink-soft);
+  }
+
+  /* ---------- FOOTER / CONTACT ---------- */
+  footer{
+    border-top:1.5px solid var(--ink);
+    padding:40px 0 60px;
+  }
+  .contact-grid{
+    display:flex; justify-content:space-between; align-items:flex-end;
+    flex-wrap:wrap; gap:24px;
+  }
+  .contact-grid h2{font-size:22px; margin-bottom:8px;}
+  .contact-links{display:flex; gap:20px; flex-wrap:wrap;}
+  .contact-links a{
+    font-family:'IBM Plex Mono', monospace; font-size:13.5px;
+    text-decoration:none; color:var(--ink);
+    border-bottom:1px solid var(--line-strong);
+    padding-bottom:2px;
+  }
+  .contact-links a:hover{color:var(--copper-dark); border-color:var(--copper);}
+  .cta-btn{
+    display:inline-block; background:var(--ink); color:var(--paper) !important;
+    padding:10px 18px; font-family:'IBM Plex Mono', monospace; font-size:13px;
+    text-decoration:none; border:1px solid var(--ink);
+  }
+  .cta-btn:hover{background:transparent; color:var(--ink) !important;}
+  .foot-meta{
+    margin-top:36px; font-size:11.5px; color:var(--ink-soft);
+    font-family:'IBM Plex Mono', monospace;
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="navrow">
+    <div class="brand">R. LARRAÍNZAR JULVE</div>
+    <ul class="navlinks">
+      <li><a class="navlink" href="#proyectos">Proyectos</a></li>
+      <li><a class="navlink" href="#sobre-mi">Sobre mí</a></li>
+      <li><a class="navlink" href="#contacto">Contacto</a></li>
+    </ul>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ===== HERO / TITLE BLOCK ===== -->
+  <section class="titleblock-section">
+    <div class="titleblock">
+      <div class="tb-top">
+        <div class="tb-eyebrow">Portfolio técnico</div>
+        <h1>Ricardo Larraínzar Julve</h1>
+        <div class="tb-role">Ingeniero de Hardware</div>
+        <p class="tb-tagline">
+          Diseño y validación de electrónica de potencia y sistemas analógicos
+          para plataformas aéreas — desde una placa de distribución de potencia
+          para drones hasta un convertidor digital-analógico en CMOS.
+        </p>
+      </div>
+      <div class="tb-fields">
+        <div class="tb-field">
+          <span class="label">Ubicación</span>
+          <span class="value">Madrid, España</span>
+        </div>
+        <div class="tb-field">
+          <span class="label">LinkedIn</span>
+          <span class="value"><a href="https://www.linkedin.com/in/ricardo-larrainzar-julve/" target="_blank" rel="noopener">/ricardo-larrainzar-julve</a></span>
+        </div>
+        <div class="tb-field">
+          <span class="label">Rev.</span>
+          <span class="value">1.0</span>
+        </div>
+        <div class="tb-field">
+          <span class="label">Fecha</span>
+          <span class="value" id="tb-date">—</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROYECTOS ===== -->
+  <section class="section" id="proyectos">
+    <div class="section-head">
+      <span class="tag">02 proyectos + 1 extra</span>
+      <h2>Proyectos</h2>
+    </div>
+
+    <!-- PROYECTO 1: XRF -->
+    <article class="project">
+      <div class="project-head">
+        <div>
+          <div class="project-code">XRF-PDB-01</div>
+          <h3>Placa de distribución de potencia para UAV</h3>
+          <div class="project-meta">XReality Factory (XRF) · TFM UC3M · sep. 2025 – may. 2026</div>
+        </div>
+        <div class="project-tags">
+          <span>Electrónica de potencia</span>
+          <span>Diseño de PCB</span>
+          <span>Drones</span>
+        </div>
+      </div>
+      <div class="project-body">
+        <div class="spec-table">
+          <div class="spec-row">
+            <span class="k">Alimentación</span>
+            <span class="v">Baterías de 6 celdas de polímero de litio</span>
+          </div>
+          <div class="spec-row">
+            <span class="k">Motores</span>
+            <span class="v">4 (multirrotor)</span>
+          </div>
+          <div class="spec-row">
+            <span class="k">Raíl 1</span>
+            <span class="v">5 V / 3 A — controlador de vuelo</span>
+          </div>
+          <div class="spec-row">
+            <span class="k">Raíl 2</span>
+            <span class="v">12 V / 4 A — computación embarcada (NVIDIA Jetson Orin)</span>
+          </div>
+          <div class="spec-row">
+            <span class="k">Resultado</span>
+            <span class="v copper">Cableado 120→48 cm · Masa 60→44 g (−27%)</span>
+          </div>
+        </div>
+        <div class="project-main">
+          <div class="beats">
+            <div class="beat">
+              <span class="label">Problema</span>
+              <p>Centralizar la distribución de potencia de un dron multirrotor sin penalizar peso ni fiabilidad.</p>
+            </div>
+            <div class="beat">
+              <span class="label">Decisión</span>
+              <p>Dos raíles CC/CC dedicados y distribución simétrica de cobre para control térmico y del centro de gravedad.</p>
+            </div>
+            <div class="beat">
+              <span class="label">Verificación</span>
+              <p>Monitorización de tensión y corriente con telemetría al controlador de vuelo (Pixhawk).</p>
+            </div>
+            <div class="beat">
+              <span class="label">Resultado</span>
+              <p>Reducción medida de masa y longitud de cableado del subsistema de potencia.</p>
+            </div>
+          </div>
+          <div class="gallery" style="grid-template-columns:repeat(3, 1fr); max-width:680px;">
+            <figure class="img-slot">
+              <div class="imgph"><img src="images/xrf-render.jpg" alt="Render 3D del diseño final de la PDB en KiCad"></div>
+              <figcaption>Render 3D · diseño final (KiCad)</figcaption>
+            </figure>
+            <figure class="img-slot">
+              <div class="imgph"><img src="images/xrf-esquematico.jpg" alt="Esquemático de la placa de distribución de potencia"></div>
+              <figcaption>Esquemático</figcaption>
+            </figure>
+            <figure class="img-slot">
+              <div class="imgph"><img src="images/xrf-prototipo.jpg" alt="Foto del prototipo de la placa de distribución de potencia"></div>
+              <figcaption>Foto del prototipo</figcaption>
+            </figure>
+          </div>
+          <div class="links-row">
+            <a href="docs/TFM_Ricardo_Larrainzar.pdf" target="_blank" rel="noopener">↳ Descargar TFM completo (PDF)</a>
+          </div>
+          <p class="note">
+            El render 3D corresponde al diseño final; la fotografía es de una
+            iteración de prototipo previa. Proyecto de defensa: los gerbers no
+            se publican sin autorización de XRF. Las imágenes y resultados
+            mostrados aquí sí están autorizados a nivel de resumen técnico.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <!-- PROYECTO 2: TFG DAC -->
+    <article class="project">
+      <div class="project-head">
+        <div>
+          <div class="project-code">UC3M-DAC-02</div>
+          <h3>Convertidor digital-analógico current-steering</h3>
+          <div class="project-meta">Trabajo Fin de Grado · UC3M · 2023 – 2024</div>
+        </div>
+        <div class="project-tags">
+          <span>Diseño analógico</span>
+          <span>CMOS</span>
+          <span>LTSpice</span>
+        </div>
+      </div>
+      <div class="project-body">
+        <div class="spec-table">
+          <div class="spec-row">
+            <span class="k">Tecnología</span>
+            <span class="v">CMOS · 50 nm</span>
+          </div>
+          <div class="spec-row">
+            <span class="k">Topología</span>
+            <span class="v">Current-steering DAC</span>
+          </div>
+          <div class="spec-row">
+            <span class="k">Aplicación</span>
+            <span class="v">Realimentación de ADC Σ-Δ con VCO integrador</span>
+          </div>
+          <div class="spec-row">
+            <span class="k">Modelado</span>
+            <span class="v">MATLAB + LTSpice</span>
+          </div>
+          <div class="spec-row">
+            <span class="k">Resultado</span>
+            <span class="v copper">68 dB SNDR @ 1 MHz de ancho de banda</span>
+          </div>
+        </div>
+        <div class="project-main">
+          <div class="beats">
+            <div class="beat">
+              <span class="label">Problema</span>
+              <p>Diseñar un DAC de bajo consumo y alta velocidad para un lazo de realimentación de un ADC de alta resolución.</p>
+            </div>
+            <div class="beat">
+              <span class="label">Decisión</span>
+              <p>Topología current-steering en CMOS, evitando la dependencia de amplificadores operacionales de alta ganancia.</p>
+            </div>
+            <div class="beat">
+              <span class="label">Verificación</span>
+              <p>Modelo en MATLAB del ADC Σ-Δ, integrado y simulado en LTSpice frente al caso ideal.</p>
+            </div>
+            <div class="beat">
+              <span class="label">Resultado</span>
+              <p>Sistema realimentado con 68 dB de SNDR, validando el diseño frente al caso ideal.</p>
+            </div>
+          </div>
+          <div class="gallery" style="grid-template-columns:repeat(3, 1fr);">
+            <figure class="img-slot">
+              <div class="imgph"><img src="images/dac-principio.jpg" alt="Esquema básico del principio de conmutación de corrientes"></div>
+              <figcaption>Principio de funcionamiento</figcaption>
+            </figure>
+            <figure class="img-slot">
+              <div class="imgph"><img src="images/dac-espectro.jpg" alt="Espectro armónico del ADC en MATLAB"></div>
+              <figcaption>Espectro armónico</figcaption>
+            </figure>
+            <figure class="img-slot">
+              <div class="imgph"><img src="images/dac-diagrama.jpg" alt="Diagrama de bloques del ADC Sigma-Delta en MATLAB"></div>
+              <figcaption>Diagrama de bloques</figcaption>
+            </figure>
+          </div>
+          <div class="links-row">
+            <a href="docs/TFG_Ricardo_Larrainzar.pdf" target="_blank" rel="noopener">↳ Descargar TFG completo (PDF)</a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- PROYECTO ADICIONAL: Theremín -->
+    <article class="project minor solid">
+      <div class="project-head">
+        <div>
+          <div class="project-code">EXTRA · UC3M-THR-04</div>
+          <h3>Theremín analógico</h3>
+          <div class="project-meta">Proyecto de asignatura del grado · UC3M · trabajo en grupo</div>
+        </div>
+        <div class="project-tags">
+          <span>Sensores ópticos</span>
+          <span>Instrumentación analógica</span>
+        </div>
+      </div>
+      <div class="minor-body">
+        <p>
+          Theremín construido con sensores ópticos de distancia: cada sensor
+          mide la distancia de la mano y esa medida simula el efecto de
+          acercarse a la antena de un theremín analógico tradicional,
+          controlando el tono en tiempo real.
+        </p>
+        <figure class="img-slot minor-img-wrap">
+          <div class="minor-img"><img src="images/theremin-montaje.jpg" alt="Foto del montaje del theremín analógico"></div>
+          <figcaption>Foto del montaje</figcaption>
+        </figure>
+      </div>
+    </article>
+  </section>
+
+  <!-- ===== SOBRE MÍ ===== -->
+  <section class="section" id="sobre-mi">
+    <div class="section-head">
+      <span class="tag">Perfil</span>
+      <h2>Sobre mí</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          Ingeniero de Hardware con experiencia en electrónica para plataformas
+          aéreas — desde el diseño de una placa de distribución de potencia
+          para drones (XRF) hasta el diseño analógico a nivel de circuito
+          integrado en CMOS (TFG).
+        </p>
+        <p>
+          Graduado en Ingeniería Electrónica Industrial y Automática por la
+          Universidad Carlos III de Madrid, con Máster habilitante en Ingeniería
+          Industrial por la misma universidad. Estancia en el Laboratorio de
+          Biomecánica de Aesculap (grupo B. Braun), en Tuttlingen, Alemania.
+        </p>
+      </div>
+      <ul class="skills-list">
+        <li><span>Diseño de PCB (KiCad)</span></li>
+        <li><span>Simulación de circuitos analógicos (LTSpice)</span></li>
+        <li><span>Diseño de electrónica analógica y de potencia</span></li>
+        <li><span>Instrumentación y validación en banco</span></li>
+        <li><span>Modelado de sistemas (MATLAB/Simulink)</span></li>
+        <li><span>Inglés (C1)</span></li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contacto">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <h2>Hablemos</h2>
+        <div class="contact-links">
+          <a href="mailto:riky.rlj@gmail.com">riky.rlj@gmail.com</a>
+          <a href="https://www.linkedin.com/in/ricardo-larrainzar-julve/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+      <a class="cta-btn" href="docs/CV_Ricardo_Larrainzar.pdf" target="_blank" rel="noopener">Descargar CV (PDF) ↓</a>
+    </div>
+    <div class="foot-meta">Madrid, España · Documento generado como portfolio técnico</div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('tb-date').textContent = new Date().toLocaleDateString('es-ES', {year:'numeric', month:'2-digit', day:'2-digit'});
+</script>
+
+</body>
+</html>
