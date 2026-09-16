@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ricardo Larraínzar Julve — Ingeniero de Hardware</title>
-<meta name="description" content="Portfolio técnico de Ricardo Larraínzar Julve, Ingeniero de Hardware especializado en electrónica de potencia y sistemas analógicos.">
+<meta id="meta-desc" name="description" content="Portfolio técnico de Ricardo Larraínzar Julve, Ingeniero de Hardware especializado en electrónica de potencia y sistemas analógicos.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -83,6 +83,17 @@
     font-family:'IBM Plex Mono', monospace;
   }
   .navlinks a:hover{color:var(--copper-dark);}
+
+  .lang-switch{display:flex; align-items:center; gap:2px; margin-left:8px;}
+  .lang-switch button{
+    font-family:'IBM Plex Mono', monospace; font-size:12px;
+    background:transparent; border:1px solid var(--line-strong);
+    color:var(--ink-soft); padding:3px 8px; cursor:pointer;
+  }
+  .lang-switch button.active{
+    background:var(--ink); color:var(--paper); border-color:var(--ink);
+  }
+  .lang-switch button:first-child{border-right:none;}
 
   /* ---------- TITLE BLOCK / HERO ---------- */
   .titleblock-section{padding:56px 0 40px;}
@@ -351,10 +362,14 @@
   <div class="navrow">
     <div class="brand">R. LARRAÍNZAR JULVE</div>
     <ul class="navlinks">
-      <li><a class="navlink" href="#proyectos">Proyectos</a></li>
-      <li><a class="navlink" href="#sobre-mi">Sobre mí</a></li>
-      <li><a class="navlink" href="#contacto">Contacto</a></li>
+      <li><a class="navlink" href="#proyectos" data-en="Projects">Proyectos</a></li>
+      <li><a class="navlink" href="#sobre-mi" data-en="About">Sobre mí</a></li>
+      <li><a class="navlink" href="#contacto" data-en="Contact">Contacto</a></li>
     </ul>
+    <div class="lang-switch" role="group" aria-label="Idioma / Language">
+      <button type="button" id="lang-es" class="active" aria-pressed="true">ES</button>
+      <button type="button" id="lang-en" aria-pressed="false">EN</button>
+    </div>
   </div>
 </header>
 
@@ -364,10 +379,10 @@
   <section class="titleblock-section">
     <div class="titleblock">
       <div class="tb-top">
-        <div class="tb-eyebrow">Portfolio técnico</div>
+        <div class="tb-eyebrow" data-en="Technical portfolio">Portfolio técnico</div>
         <h1>Ricardo Larraínzar Julve</h1>
-        <div class="tb-role">Ingeniero de Hardware</div>
-        <p class="tb-tagline">
+        <div class="tb-role" data-en="Hardware Engineer">Ingeniero de Hardware</div>
+        <p class="tb-tagline" data-en="Design and validation of power electronics and analog systems for aerial platforms — from a power distribution board for drones to a digital-to-analog converter in CMOS.">
           Diseño y validación de electrónica de potencia y sistemas analógicos
           para plataformas aéreas — desde una placa de distribución de potencia
           para drones hasta un convertidor digital-analógico en CMOS.
@@ -375,8 +390,8 @@
       </div>
       <div class="tb-fields">
         <div class="tb-field">
-          <span class="label">Ubicación</span>
-          <span class="value">Madrid, España</span>
+          <span class="label" data-en="Location">Ubicación</span>
+          <span class="value" data-en="Madrid, Spain">Madrid, España</span>
         </div>
         <div class="tb-field">
           <span class="label">LinkedIn</span>
@@ -387,7 +402,7 @@
           <span class="value">1.0</span>
         </div>
         <div class="tb-field">
-          <span class="label">Fecha</span>
+          <span class="label" data-en="Date">Fecha</span>
           <span class="value" id="tb-date">—</span>
         </div>
       </div>
@@ -397,8 +412,8 @@
   <!-- ===== PROYECTOS ===== -->
   <section class="section" id="proyectos">
     <div class="section-head">
-      <span class="tag">02 proyectos + 1 extra</span>
-      <h2>Proyectos</h2>
+      <span class="tag" data-en="2 projects + 1 extra">02 proyectos + 1 extra</span>
+      <h2 data-en="Projects">Proyectos</h2>
     </div>
 
     <!-- PROYECTO 1: XRF -->
@@ -406,75 +421,75 @@
       <div class="project-head">
         <div>
           <div class="project-code">XRF-PDB-01</div>
-          <h3>Placa de distribución de potencia para UAV</h3>
-          <div class="project-meta">XReality Factory (XRF) · TFM UC3M · sep. 2025 – may. 2026</div>
+          <h3 data-en="Power distribution board for UAV">Placa de distribución de potencia para UAV</h3>
+          <div class="project-meta" data-en="XReality Factory (XRF) · MSc thesis, UC3M · Sep 2025 – May 2026">XReality Factory (XRF) · TFM UC3M · sep. 2025 – may. 2026</div>
         </div>
         <div class="project-tags">
-          <span>Electrónica de potencia</span>
-          <span>Diseño de PCB</span>
-          <span>Drones</span>
+          <span data-en="Power electronics">Electrónica de potencia</span>
+          <span data-en="PCB design">Diseño de PCB</span>
+          <span data-en="Drones">Drones</span>
         </div>
       </div>
       <div class="project-body">
         <div class="spec-table">
           <div class="spec-row">
-            <span class="k">Alimentación</span>
-            <span class="v">Baterías de 6 celdas de polímero de litio</span>
+            <span class="k" data-en="Power supply">Alimentación</span>
+            <span class="v" data-en="6-cell lithium-polymer batteries">Baterías de 6 celdas de polímero de litio</span>
           </div>
           <div class="spec-row">
-            <span class="k">Motores</span>
-            <span class="v">4 (multirrotor)</span>
+            <span class="k" data-en="Motors">Motores</span>
+            <span class="v" data-en="4 (multirotor)">4 (multirrotor)</span>
           </div>
           <div class="spec-row">
-            <span class="k">Raíl 1</span>
-            <span class="v">5 V / 3 A — controlador de vuelo</span>
+            <span class="k" data-en="Rail 1">Raíl 1</span>
+            <span class="v" data-en="5 V / 3 A — flight controller">5 V / 3 A — controlador de vuelo</span>
           </div>
           <div class="spec-row">
-            <span class="k">Raíl 2</span>
-            <span class="v">12 V / 4 A — computación embarcada (NVIDIA Jetson Orin)</span>
+            <span class="k" data-en="Rail 2">Raíl 2</span>
+            <span class="v" data-en="12 V / 4 A — onboard computing (NVIDIA Jetson Orin)">12 V / 4 A — computación embarcada (NVIDIA Jetson Orin)</span>
           </div>
           <div class="spec-row">
-            <span class="k">Resultado</span>
-            <span class="v copper">Cableado 120→48 cm · Masa 60→44 g (−27%)</span>
+            <span class="k" data-en="Result">Resultado</span>
+            <span class="v copper" data-en="Wiring 120→48 cm · Mass 60→44 g (−27%)">Cableado 120→48 cm · Masa 60→44 g (−27%)</span>
           </div>
         </div>
         <div class="project-main">
           <div class="beats">
             <div class="beat">
-              <span class="label">Problema</span>
-              <p>Centralizar la distribución de potencia de un dron multirrotor sin penalizar peso ni fiabilidad.</p>
+              <span class="label" data-en="Problem">Problema</span>
+              <p data-en="Centralizing power distribution on a multirotor drone without penalizing weight or reliability.">Centralizar la distribución de potencia de un dron multirrotor sin penalizar peso ni fiabilidad.</p>
             </div>
             <div class="beat">
-              <span class="label">Decisión</span>
-              <p>Dos raíles CC/CC dedicados y distribución simétrica de cobre para control térmico y del centro de gravedad.</p>
+              <span class="label" data-en="Decision">Decisión</span>
+              <p data-en="Two dedicated DC/DC rails and symmetric copper distribution for thermal control and center of gravity.">Dos raíles CC/CC dedicados y distribución simétrica de cobre para control térmico y del centro de gravedad.</p>
             </div>
             <div class="beat">
-              <span class="label">Verificación</span>
-              <p>Monitorización de tensión y corriente con telemetría al controlador de vuelo (Pixhawk).</p>
+              <span class="label" data-en="Verification">Verificación</span>
+              <p data-en="Voltage and current monitoring with telemetry to the flight controller (Pixhawk).">Monitorización de tensión y corriente con telemetría al controlador de vuelo (Pixhawk).</p>
             </div>
             <div class="beat">
-              <span class="label">Resultado</span>
-              <p>Reducción medida de masa y longitud de cableado del subsistema de potencia.</p>
+              <span class="label" data-en="Result">Resultado</span>
+              <p data-en="Measured reduction in mass and wiring length of the power subsystem.">Reducción medida de masa y longitud de cableado del subsistema de potencia.</p>
             </div>
           </div>
           <div class="gallery" style="grid-template-columns:repeat(3, 1fr); max-width:680px;">
             <figure class="img-slot">
               <div class="imgph"><img src="images/xrf-render.jpg" alt="Render 3D del diseño final de la PDB en KiCad"></div>
-              <figcaption>Render 3D · diseño final (KiCad)</figcaption>
+              <figcaption data-en="3D render · final design (KiCad)">Render 3D · diseño final (KiCad)</figcaption>
             </figure>
             <figure class="img-slot">
               <div class="imgph"><img src="images/xrf-esquematico.jpg" alt="Esquemático de la placa de distribución de potencia"></div>
-              <figcaption>Esquemático</figcaption>
+              <figcaption data-en="Schematic">Esquemático</figcaption>
             </figure>
             <figure class="img-slot">
               <div class="imgph"><img src="images/xrf-prototipo.jpg" alt="Foto del prototipo de la placa de distribución de potencia"></div>
-              <figcaption>Foto del prototipo</figcaption>
+              <figcaption data-en="Prototype photo">Foto del prototipo</figcaption>
             </figure>
           </div>
           <div class="links-row">
-            <a href="docs/TFM_Ricardo_Larrainzar.pdf" target="_blank" rel="noopener">↳ Descargar TFM completo (PDF)</a>
+            <a href="docs/TFM_Ricardo_Larrainzar.pdf" target="_blank" rel="noopener" data-en="↳ Download full thesis (PDF, in Spanish)">↳ Descargar TFM completo (PDF)</a>
           </div>
-          <p class="note">
+          <p class="note" data-en="The 3D render corresponds to the final design; the photograph is from an earlier prototype iteration. Defense project: gerbers are not published without XRF's authorization. The images and results shown here are authorized at a technical-summary level.">
             El render 3D corresponde al diseño final; la fotografía es de una
             iteración de prototipo previa. Proyecto de defensa: los gerbers no
             se publican sin autorización de XRF. Las imágenes y resultados
@@ -489,11 +504,11 @@
       <div class="project-head">
         <div>
           <div class="project-code">UC3M-DAC-02</div>
-          <h3>Convertidor digital-analógico current-steering</h3>
-          <div class="project-meta">Trabajo Fin de Grado · UC3M · 2023 – 2024</div>
+          <h3 data-en="Current-steering digital-to-analog converter">Convertidor digital-analógico current-steering</h3>
+          <div class="project-meta" data-en="Bachelor's thesis · UC3M · 2023 – 2024">Trabajo Fin de Grado · UC3M · 2023 – 2024</div>
         </div>
         <div class="project-tags">
-          <span>Diseño analógico</span>
+          <span data-en="Analog design">Diseño analógico</span>
           <span>CMOS</span>
           <span>LTSpice</span>
         </div>
@@ -501,61 +516,61 @@
       <div class="project-body">
         <div class="spec-table">
           <div class="spec-row">
-            <span class="k">Tecnología</span>
+            <span class="k" data-en="Technology">Tecnología</span>
             <span class="v">CMOS · 50 nm</span>
           </div>
           <div class="spec-row">
-            <span class="k">Topología</span>
+            <span class="k" data-en="Topology">Topología</span>
             <span class="v">Current-steering DAC</span>
           </div>
           <div class="spec-row">
-            <span class="k">Aplicación</span>
-            <span class="v">Realimentación de ADC Σ-Δ con VCO integrador</span>
+            <span class="k" data-en="Application">Aplicación</span>
+            <span class="v" data-en="Feedback for a Σ-Δ ADC with integrating VCO">Realimentación de ADC Σ-Δ con VCO integrador</span>
           </div>
           <div class="spec-row">
-            <span class="k">Modelado</span>
+            <span class="k" data-en="Modeling">Modelado</span>
             <span class="v">MATLAB + LTSpice</span>
           </div>
           <div class="spec-row">
-            <span class="k">Resultado</span>
-            <span class="v copper">68 dB SNDR @ 1 MHz de ancho de banda</span>
+            <span class="k" data-en="Result">Resultado</span>
+            <span class="v copper" data-en="68 dB SNDR @ 1 MHz bandwidth">68 dB SNDR @ 1 MHz de ancho de banda</span>
           </div>
         </div>
         <div class="project-main">
           <div class="beats">
             <div class="beat">
-              <span class="label">Problema</span>
-              <p>Diseñar un DAC de bajo consumo y alta velocidad para un lazo de realimentación de un ADC de alta resolución.</p>
+              <span class="label" data-en="Problem">Problema</span>
+              <p data-en="Designing a low-power, high-speed DAC for the feedback loop of a high-resolution ADC.">Diseñar un DAC de bajo consumo y alta velocidad para un lazo de realimentación de un ADC de alta resolución.</p>
             </div>
             <div class="beat">
-              <span class="label">Decisión</span>
-              <p>Topología current-steering en CMOS, evitando la dependencia de amplificadores operacionales de alta ganancia.</p>
+              <span class="label" data-en="Decision">Decisión</span>
+              <p data-en="Current-steering topology in CMOS, avoiding reliance on high-gain operational amplifiers.">Topología current-steering en CMOS, evitando la dependencia de amplificadores operacionales de alta ganancia.</p>
             </div>
             <div class="beat">
-              <span class="label">Verificación</span>
-              <p>Modelo en MATLAB del ADC Σ-Δ, integrado y simulado en LTSpice frente al caso ideal.</p>
+              <span class="label" data-en="Verification">Verificación</span>
+              <p data-en="MATLAB model of the Σ-Δ ADC, integrated and simulated in LTSpice against the ideal case.">Modelo en MATLAB del ADC Σ-Δ, integrado y simulado en LTSpice frente al caso ideal.</p>
             </div>
             <div class="beat">
-              <span class="label">Resultado</span>
-              <p>Sistema realimentado con 68 dB de SNDR, validando el diseño frente al caso ideal.</p>
+              <span class="label" data-en="Result">Resultado</span>
+              <p data-en="Feedback system with 68 dB SNDR, validating the design against the ideal case.">Sistema realimentado con 68 dB de SNDR, validando el diseño frente al caso ideal.</p>
             </div>
           </div>
           <div class="gallery" style="grid-template-columns:repeat(3, 1fr);">
             <figure class="img-slot">
               <div class="imgph"><img src="images/dac-principio.jpg" alt="Esquema básico del principio de conmutación de corrientes"></div>
-              <figcaption>Principio de funcionamiento</figcaption>
+              <figcaption data-en="Operating principle">Principio de funcionamiento</figcaption>
             </figure>
             <figure class="img-slot">
               <div class="imgph"><img src="images/dac-espectro.jpg" alt="Espectro armónico del ADC en MATLAB"></div>
-              <figcaption>Espectro armónico</figcaption>
+              <figcaption data-en="Harmonic spectrum">Espectro armónico</figcaption>
             </figure>
             <figure class="img-slot">
               <div class="imgph"><img src="images/dac-diagrama.jpg" alt="Diagrama de bloques del ADC Sigma-Delta en MATLAB"></div>
-              <figcaption>Diagrama de bloques</figcaption>
+              <figcaption data-en="Block diagram">Diagrama de bloques</figcaption>
             </figure>
           </div>
           <div class="links-row">
-            <a href="docs/TFG_Ricardo_Larrainzar.pdf" target="_blank" rel="noopener">↳ Descargar TFG completo (PDF)</a>
+            <a href="docs/TFG_Ricardo_Larrainzar.pdf" target="_blank" rel="noopener" data-en="↳ Download full thesis (PDF, in Spanish)">↳ Descargar TFG completo (PDF)</a>
           </div>
         </div>
       </div>
@@ -566,16 +581,16 @@
       <div class="project-head">
         <div>
           <div class="project-code">EXTRA · UC3M-THR-04</div>
-          <h3>Theremín analógico</h3>
-          <div class="project-meta">Proyecto de asignatura del grado · UC3M · trabajo en grupo</div>
+          <h3 data-en="Analog theremin">Theremín analógico</h3>
+          <div class="project-meta" data-en="Bachelor's coursework project · UC3M · group work">Proyecto de asignatura del grado · UC3M · trabajo en grupo</div>
         </div>
         <div class="project-tags">
-          <span>Sensores ópticos</span>
-          <span>Instrumentación analógica</span>
+          <span data-en="Optical sensors">Sensores ópticos</span>
+          <span data-en="Analog instrumentation">Instrumentación analógica</span>
         </div>
       </div>
       <div class="minor-body">
-        <p>
+        <p data-en="An analog theremin built with optical distance sensors: each sensor measures the distance of the hand and that reading simulates the effect of approaching the antenna of a traditional analog theremin, controlling pitch in real time.">
           Theremín construido con sensores ópticos de distancia: cada sensor
           mide la distancia de la mano y esa medida simula el efecto de
           acercarse a la antena de un theremín analógico tradicional,
@@ -583,7 +598,7 @@
         </p>
         <figure class="img-slot minor-img-wrap">
           <div class="minor-img"><img src="images/theremin-montaje.jpg" alt="Foto del montaje del theremín analógico"></div>
-          <figcaption>Foto del montaje</figcaption>
+          <figcaption data-en="Setup photo">Foto del montaje</figcaption>
         </figure>
       </div>
     </article>
@@ -592,18 +607,18 @@
   <!-- ===== SOBRE MÍ ===== -->
   <section class="section" id="sobre-mi">
     <div class="section-head">
-      <span class="tag">Perfil</span>
-      <h2>Sobre mí</h2>
+      <span class="tag" data-en="Profile">Perfil</span>
+      <h2 data-en="About Me">Sobre mí</h2>
     </div>
     <div class="about-grid">
       <div class="about-text">
-        <p>
+        <p data-en="Hardware Engineer with experience in electronics for aerial platforms — from designing a power distribution board for drones (XRF) to analog design at the integrated-circuit level in CMOS (Bachelor's thesis).">
           Ingeniero de Hardware con experiencia en electrónica para plataformas
           aéreas — desde el diseño de una placa de distribución de potencia
           para drones (XRF) hasta el diseño analógico a nivel de circuito
           integrado en CMOS (TFG).
         </p>
-        <p>
+        <p data-en="Graduate in Industrial Electronics and Automation Engineering from Universidad Carlos III de Madrid, with a Master's degree in Industrial Engineering from the same university. Placement at the Biomechanics Lab of Aesculap (B. Braun Group) in Tuttlingen, Germany.">
           Graduado en Ingeniería Electrónica Industrial y Automática por la
           Universidad Carlos III de Madrid, con Máster habilitante en Ingeniería
           Industrial por la misma universidad. Estancia en el Laboratorio de
@@ -611,12 +626,12 @@
         </p>
       </div>
       <ul class="skills-list">
-        <li><span>Diseño de PCB (KiCad)</span></li>
-        <li><span>Simulación de circuitos analógicos (LTSpice)</span></li>
-        <li><span>Diseño de electrónica analógica y de potencia</span></li>
-        <li><span>Instrumentación y validación en banco</span></li>
-        <li><span>Modelado de sistemas (MATLAB/Simulink)</span></li>
-        <li><span>Inglés (C1)</span></li>
+        <li><span data-en="PCB Design (KiCad)">Diseño de PCB (KiCad)</span></li>
+        <li><span data-en="Analog Circuit Simulation (LTSpice)">Simulación de circuitos analógicos (LTSpice)</span></li>
+        <li><span data-en="Analog & Power Electronics Design">Diseño de electrónica analógica y de potencia</span></li>
+        <li><span data-en="Instrumentation & Bench Validation">Instrumentación y validación en banco</span></li>
+        <li><span data-en="Systems Modeling (MATLAB/Simulink)">Modelado de sistemas (MATLAB/Simulink)</span></li>
+        <li><span data-en="Spanish (Native) · English (C1)">Inglés (C1)</span></li>
       </ul>
     </div>
   </section>
@@ -627,15 +642,15 @@
   <div class="wrap">
     <div class="contact-grid">
       <div>
-        <h2>Hablemos</h2>
+        <h2 data-en="Let's talk">Hablemos</h2>
         <div class="contact-links">
           <a href="mailto:riky.rlj@gmail.com">riky.rlj@gmail.com</a>
           <a href="https://www.linkedin.com/in/ricardo-larrainzar-julve/" target="_blank" rel="noopener">LinkedIn</a>
         </div>
       </div>
-      <a class="cta-btn" href="docs/CV_Ricardo_Larrainzar.pdf" target="_blank" rel="noopener">Descargar CV (PDF) ↓</a>
+      <a class="cta-btn" id="cv-download" href="docs/CV_Ricardo_Larrainzar.pdf" target="_blank" rel="noopener" data-en="Download CV (PDF) ↓">Descargar CV (PDF) ↓</a>
     </div>
-    <div class="foot-meta">Madrid, España · Documento generado como portfolio técnico</div>
+    <div class="foot-meta" data-en="Madrid, Spain · Document generated as a technical portfolio">Madrid, España · Documento generado como portfolio técnico</div>
   </div>
 </footer>
 
@@ -648,6 +663,45 @@
 
 <script>
   document.getElementById('tb-date').textContent = new Date().toLocaleDateString('es-ES', {year:'numeric', month:'2-digit', day:'2-digit'});
+
+  (function(){
+    var htmlEl = document.documentElement;
+    var titleEl = document.querySelector('title');
+    var descEl = document.getElementById('meta-desc');
+    var cvBtn = document.getElementById('cv-download');
+    var btnEs = document.getElementById('lang-es');
+    var btnEn = document.getElementById('lang-en');
+
+    var TITLE_ES = "Ricardo Larraínzar Julve — Ingeniero de Hardware";
+    var TITLE_EN = "Ricardo Larraínzar Julve — Hardware Engineer";
+    var DESC_ES = "Portfolio técnico de Ricardo Larraínzar Julve, Ingeniero de Hardware especializado en electrónica de potencia y sistemas analógicos.";
+    var DESC_EN = "Technical portfolio of Ricardo Larraínzar Julve, Hardware Engineer specializing in power electronics and analog systems.";
+    var CV_ES = "docs/CV_Ricardo_Larrainzar.pdf";
+    var CV_EN = "docs/CV_Ricardo_Larrainzar_EN.pdf";
+
+    function applyLang(lang){
+      document.querySelectorAll('[data-en]').forEach(function(el){
+        if(el.dataset.esOriginal === undefined){ el.dataset.esOriginal = el.textContent; }
+        el.textContent = lang === 'en' ? el.dataset.en : el.dataset.esOriginal;
+      });
+      htmlEl.setAttribute('lang', lang);
+      titleEl.textContent = lang === 'en' ? TITLE_EN : TITLE_ES;
+      descEl.setAttribute('content', lang === 'en' ? DESC_EN : DESC_ES);
+      if(cvBtn){ cvBtn.setAttribute('href', lang === 'en' ? CV_EN : CV_ES); }
+      btnEs.classList.toggle('active', lang !== 'en');
+      btnEn.classList.toggle('active', lang === 'en');
+      btnEs.setAttribute('aria-pressed', String(lang !== 'en'));
+      btnEn.setAttribute('aria-pressed', String(lang === 'en'));
+      try{ localStorage.setItem('portfolio-lang', lang); }catch(e){}
+    }
+
+    var saved = 'es';
+    try{ saved = localStorage.getItem('portfolio-lang') || 'es'; }catch(e){}
+    applyLang(saved);
+
+    btnEs.addEventListener('click', function(){ applyLang('es'); });
+    btnEn.addEventListener('click', function(){ applyLang('en'); });
+  })();
 
   (function(){
     var lb = document.getElementById('lightbox');
@@ -679,14 +733,13 @@
       img.tabIndex = 0;
       img.setAttribute('role', 'button');
       var figcap = img.closest('.img-slot');
-      var captionText = figcap ? figcap.querySelector('figcaption') : null;
-      captionText = captionText ? captionText.textContent : img.alt;
+      var captionEl = figcap ? figcap.querySelector('figcaption') : null;
 
-      img.addEventListener('click', function(){ openLightbox(img.src, captionText); });
+      img.addEventListener('click', function(){ openLightbox(img.src, captionEl ? captionEl.textContent : img.alt); });
       img.addEventListener('keydown', function(e){
         if(e.key === 'Enter' || e.key === ' '){
           e.preventDefault();
-          openLightbox(img.src, captionText);
+          openLightbox(img.src, captionEl ? captionEl.textContent : img.alt);
         }
       });
     });
